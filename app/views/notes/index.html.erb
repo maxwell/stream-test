@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col">
+      <table class="table notes">
+        <thead>
+        <th>id</th>
+        <th>created</th>
+        <th>note</th>
+        </thead>
+        <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td><%= note.id %></td>
+            <td><%= note.created_at %></td>
+            <td><%= note.text %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col">
+      <%= form_for @note do |f| %>
+
+
+        <div class="form-group">
+
+          <%= f.label :text %>
+          <%= f.text_area :text, class: 'form-control' %>
+        </div>
+
+        <%= f.submit "Save", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
